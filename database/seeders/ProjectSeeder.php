@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 
 use App\Models\Project;
 
+use Faker\Generator as Faker;
+
 class ProjectSeeder extends Seeder
 {
     /**
@@ -14,12 +16,18 @@ class ProjectSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        $projects = new Project();
+        for ($i = 0; $i < 100; $i++) {
+            $project = new Project();
 
-        $projects->title = "My projects";
-
-        $projects->save();
+            $project->title = $faker->catchPhrase();
+            $project->description = $faker->paragraph(2, true);
+            $project->link = $faker->url();
+            $project->date= $faker->dateTime();
+            // $project->coding_lang= $faker;
+           
+            $project->save();
+        }
     }
 }
