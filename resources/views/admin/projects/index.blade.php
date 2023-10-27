@@ -11,8 +11,8 @@
   <thead>
     <tr>
       <th scope="col">ID</th>
-      <th scope="col">Title</th>
-      <th scope="col"></th>
+      <th scope="col">Titolo</th>
+      <th scope="col">Tipo</th>
       <th scope="col">Dettagli</th>
     </tr>
   </thead>
@@ -21,7 +21,7 @@
     <tr>
       <th scope="row"> {{ $project->id}} </th>
       <td> {{ $project->title }}  </td>
-      <td> </td>
+      <td> {{ $project->type->tag }}</td>
       <td> 
         <a href="{{ route('admin.projects.show', $project)}}" class=""> Show </a>
         <a href="{{ route('admin.projects.create')}}" class=""> Crea </a>
