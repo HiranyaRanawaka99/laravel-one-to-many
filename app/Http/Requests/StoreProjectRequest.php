@@ -45,6 +45,7 @@ class StoreProjectRequest extends FormRequest
             'description' => ['required','string'],
             'date' => ['required','date'],
             'link' => ['required','url'],
+            'type_id' => ['integer', 'nullable', 'exists:types,id'],
         ];
     }
 
@@ -62,6 +63,8 @@ class StoreProjectRequest extends FormRequest
 
             'link.required' => 'Il link del progetto è obbligatorio',
             'link.url' => 'Inserire un formato url',
+
+            'type_id.exists' => 'Fai una scelta tra le opzioni date'
         ];
     }
 }

@@ -10,7 +10,7 @@
 
     <ul class="list-group list-group-flush">
         <li class="list-group-item"> 
-            <b> Tipo: </b> {!! $project->getCategoryBadge() !!} 
+            <b> Categoria: </b> {!! $project->getCategoryBadge() !!} 
         </li>
         <li class="list-group-item">
             <b> Descrizione: </b>  {{ $project->description }}
@@ -20,9 +20,6 @@
             </li>
         <li class="list-group-item">
             <b> Data di pubblicazione: </b>  {{ $project->date }}
-            </li>
-        <li class="list-group-item">
-            <b> Tipo: </b> 
             </li>
       </ul>
 

@@ -15,6 +15,7 @@ class Project extends Model
         "description",
         "date",
         "link",
+        "type_id"
     ];
         
     public function type() {

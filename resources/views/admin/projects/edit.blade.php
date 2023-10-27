@@ -37,6 +37,21 @@
             <label for="description" class="form-label">Descrizione</label>
             <textarea name="description" id="description"  class="form-control" rows="5" > {{ old('description') ?? $project->description }}</textarea>
         </div>
+        <div class="col-12 my-3">
+            <label for="type_id" class="form-label"> Categoria</label>
+            <select class="form-select @error('type_id')is-invalid @enderror" name="type_id" id="type_id" >
+                <option value="" >Non valido</option>
+                <option value="">Non categorizzato</option>
+                @foreach($types as $type)
+                <option value=" {{ $type->id }}" @if (old('type_id') ?? $project->type_id == $type->id ) selected @endif> {{ $type->tag }} </option>
+                @endforeach
+            </select>
+            @error('type_id')
+            <div class="invalid-feedback">
+                {{$message }}
+            </div>
+            @enderror
+        </div>
         <div class="col-12"> 
             <label for="link" class="form-label " value= "{{ old('link') ?? $project->link }}">Link</label>
             <input type="url" name="link" id="link" class="form-control @error('link')is-invalid @enderror">
