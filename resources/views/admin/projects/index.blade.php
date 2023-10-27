@@ -21,7 +21,7 @@
     <tr>
       <th scope="row"> {{ $project->id}} </th>
       <td> {{ $project->title }}  </td>
-      <td></td>
+      <td> </td>
       <td> 
         <a href="{{ route('admin.projects.show', $project)}}" class=""> Show </a>
         <a href="{{ route('admin.projects.create')}}" class=""> Crea </a>
