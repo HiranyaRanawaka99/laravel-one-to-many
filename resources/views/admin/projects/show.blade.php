@@ -6,6 +6,25 @@
 <div class="container mt-5">
     <a class="btn btn-primary my-3" href="{{ route('admin.projects.index') }}">Torna ai progetti</a>
 
-    <h1> Titolo </h1>
+    <h1> {{ $project->title }} </h1>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"> 
+            <b> Tipo: </b> {!! $project->getCategoryBadge() !!} 
+        </li>
+        <li class="list-group-item">
+            <b> Descrizione: </b>  {{ $project->description }}
+        </li>
+        <li class="list-group-item">
+            <b> Link: </b> {{ $project->link}}
+            </li>
+        <li class="list-group-item">
+            <b> Data di pubblicazione: </b>  {{ $project->date }}
+            </li>
+        <li class="list-group-item">
+            <b> Tipo: </b> 
+            </li>
+      </ul>
+
 </div>
 @endsection

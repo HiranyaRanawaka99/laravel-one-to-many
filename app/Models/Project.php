@@ -11,11 +11,19 @@ class Project extends Model
     use HasFactory;
 
     protected $fillable = [
-        "title"
+        "title",
+        "description",
+        "date",
+        "link",
     ];
         
     public function type() {
         return $this->belongsTo(Type::class);
+    }
+
+    public function getCategoryBadge() { 
+        return $this->type ? "<span class='badge' style= 'background-color: {$this->type->color}'> {$this->type->tag} </span>": "Non categorizzato" ;
+
     }
     
 }

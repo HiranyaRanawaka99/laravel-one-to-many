@@ -26,16 +26,38 @@
 
         <div class="col-12"> 
             <label for="title" class="form-label"></label>
-            <input type="text" name="title" id="title" class="form-control" value=" {{  old('title') ?? $project->title}} ">
+            <input type="text" name="title" id="title" class="form-control @error('title')is-invalid @enderror" value=" {{  old('title') ?? $project->title}} ">
+            @error('title')
+            <div class="invalid-feedback">
+                {{$message }}
+            </div>
+            @enderror
         </div> 
         <div class="col-12"> 
-            <label for="description" class="form-label">Descizione</label>
-            <textarea name="description" id="description"  class="form-control" rows="5"> </textarea>
+            <label for="description" class="form-label">Descrizione</label>
+            <textarea name="description" id="description"  class="form-control" rows="5" > {{ old('description') ?? $project->description }}</textarea>
+        </div>
+        <div class="col-12"> 
+            <label for="link" class="form-label " value= "{{ old('link') ?? $project->link }}">Link</label>
+            <input type="url" name="link" id="link" class="form-control @error('link')is-invalid @enderror">
+            @error('link')
+            <div class="invalid-feedback">
+                {{$message }}
+            </div>
+            @enderror
+        </div> 
+        <div class="col-12"> 
+            <label for="date" class="form-label " value="{{ old('date') ?? $project->date }}"> Data di pubblicazione</label>
+            <input type="date" name="date" id="date" class="form-control @error('date')is-invalid @enderror">
+            @error('date')
+            <div class="invalid-feedback">
+                {{$message }}
+            </div>
+            @enderror
         </div> 
 
-        <div class="col-12">
+        <div class="col-12 my-2">
             <button class="btn btn-success">Salva</button>
-        
         </div>
         
 

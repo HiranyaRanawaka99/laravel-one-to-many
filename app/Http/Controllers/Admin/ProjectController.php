@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UpadateProjectRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProjectRequest;
-use Illuminate\Support\Str;
-
 
 use App\Models\Project;
 class ProjectController extends Controller
@@ -19,7 +17,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::orderByDesc('id')->paginate(20);
         // $project = Post::orderByDesc()->paginate(12);
 
         return view('admin.projects.index', compact('projects'));
@@ -49,9 +47,7 @@ class ProjectController extends Controller
         $data = $request->validated();
 
         $project = new Project();
-
         $project->fill($data);
-
         $project->save();
 
         return redirect()->route('admin.projects.show', $project);

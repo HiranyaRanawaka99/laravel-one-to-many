@@ -4,9 +4,8 @@
 
 
 <div class="container mt-5">
-    <a class="btn btn-primary my-3" href="{{ route('admin.projects.index') }}">Torna ai progetti</a>
 
-    <h1> Titolo </h1>
+    <h1> Crea il tuo progetto </h1>
 
     @if($errors->any())
     <div class="alert alert-danger">
@@ -32,13 +31,36 @@
             @enderror
         </div> 
         <div class="col-12"> 
-            <label for="description" class="form-label">Descizione</label>
-            <textarea name="description" id="description"  class="form-control" rows="5"> </textarea>
+            <label for="description" class="form-label">Descrizione</label>
+            <textarea name="description" id="description" rows="5"  class="form-control @error('title')is-invalid @enderror"> {{ old('description') }} </textarea>
+            @error('description')
+            <div class="invalid-feedback">
+                {{$message }}
+            </div>
+            @enderror
+        </div> 
+        <div class="col-12"> 
+            <label for="link" class="form-label " value= "{{ old('link')}}" >Link</label>
+            <input type="url" name="link" id="link" class="form-control @error('link')is-invalid @enderror">
+            @error('link')
+            <div class="invalid-feedback">
+                {{$message }}
+            </div>
+            @enderror
+        </div> 
+        <div class="col-12"> 
+            <label for="date" class="form-label " value="{{ old('date') }}"> Data di pubblicazione</label>
+            <input type="date" name="date" id="date" class="form-control @error('date')is-invalid @enderror">
+            @error('date')
+            <div class="invalid-feedback">
+                {{$message }}
+            </div>
+            @enderror
         </div> 
 
-        <div class="col-12">
+        <div class="col-12 my-2">
             <button class="btn btn-success">Salva</button>
-        
+            <a class="btn btn-primary my-3" href="{{ route('admin.projects.index') }}">Torna alla lista progetti</a>
         </div>
         
 

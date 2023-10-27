@@ -41,7 +41,10 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required','string', 'unique:projects'],
+            'title' => ['required','string'],
+            'description' => ['required','string'],
+            'date' => ['required','date'],
+            'link' => ['required','url'],
         ];
     }
 
@@ -50,6 +53,15 @@ class StoreProjectRequest extends FormRequest
             'title.required'=> 'Il titolo è obbligatorio',
             'title.string' => 'Il titolo deve essere una stringa',
             'title.unique' => 'Esiste un progetto con lo stesso titolo',
+
+            'description.required' => 'La descrizione è obbligatoria',
+            'description.string' => 'La descrizione dev\'essere una stringa',
+
+            'date.required' => 'La data di pubblicazione è obbligatoria',
+            'date.date' => 'La data dev\'essere in formato giorno/mese/anno',
+
+            'link.required' => 'Il link del progetto è obbligatorio',
+            'link.url' => 'Inserire un formato url',
         ];
     }
 }
