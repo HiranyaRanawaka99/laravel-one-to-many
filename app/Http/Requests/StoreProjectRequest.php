@@ -8,8 +8,9 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Support\Facades\Auth;
+
 
 class StoreProjectRequest extends FormRequest
 {
@@ -45,7 +46,7 @@ class StoreProjectRequest extends FormRequest
             'description' => ['required','string'],
             'date' => ['required','date'],
             'link' => ['required','url'],
-            'type_id' => ['integer', 'nullable', 'exists:types,id'],
+            'type_id' => ['nullable', 'exists:types,id'],
         ];
     }
 

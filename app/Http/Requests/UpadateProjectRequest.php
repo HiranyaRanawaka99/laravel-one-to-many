@@ -20,7 +20,7 @@ class UpadateProjectRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, mixed>
+     * return array<string, mixed>
      */
         public function rules()
         {
@@ -34,7 +34,7 @@ class UpadateProjectRequest extends FormRequest
                 'description' => ['required','string'],
                 'date' => ['required','date'],
                 'link' => ['required','url'],
-                'type_id' => ['integer', 'nullable', 'exists:types,id'],,
+                'type_id' => [ 'nullable', 'exists:types,id'],
         
             ];
         }
